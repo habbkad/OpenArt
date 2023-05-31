@@ -7,7 +7,7 @@ type Props = {};
 const Product_component = (props: Props) => {
   return (
     <View style={styles.container}>
-      <View>
+      <View style={styles.con}>
         <TouchableOpacity style={styles.productImg}>
           <Image
             source={{
@@ -15,7 +15,7 @@ const Product_component = (props: Props) => {
             }}
             width={'320px'}
             height={'425px'}
-            borderRadius={25}
+            borderRadius={30}
           />
         </TouchableOpacity>
         <View style={styles.title}>
@@ -23,7 +23,8 @@ const Product_component = (props: Props) => {
             fontFamily={'heading'}
             fontWeight={'700'}
             fontStyle={'bold'}
-            fontSize={'24px'}>
+            fontSize={'24px'}
+            style={styles.text}>
             Silent Wave
           </Text>
         </View>
@@ -45,10 +46,15 @@ const Product_component = (props: Props) => {
                 fontFamily={'heading'}
                 fontWeight={'700'}
                 fontStyle={'bold'}
-                fontSize={'18px'}>
+                fontSize={'18px'}
+                style={styles.text}>
                 Pawel Czerwinski
               </Text>
-              <Text fontFamily={'heading'} fontWeight={'700'} fontSize={'14px'}>
+              <Text
+                fontFamily={'heading'}
+                fontWeight={'700'}
+                fontSize={'14px'}
+                style={styles.text}>
                 Creator
               </Text>
             </View>
@@ -80,9 +86,9 @@ const styles = StyleSheet.create({
     shadowOffset: {width: 10, height: 24},
     shadowRadius: 20,
   },
+  con: {flex: 1, padding: 10, borderRadius: 30, backgroundColor: '#333333'},
   productImg: {
     flex: 6,
-    marginTop: 10,
   },
   title: {
     flex: 2,
@@ -108,4 +114,45 @@ const styles = StyleSheet.create({
   likeCon: {
     flex: 2,
   },
+  text: {
+    color: '#F8F8F8',
+  },
 });
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     margin: 25,
+//     alignItems: 'center',
+//     shadowColor: '#00000014',
+//     shadowOffset: {width: 10, height: 24},
+//     shadowRadius: 20,
+//   },
+//   con: {flex: 1, padding: 10, borderRadius: 30, backgroundColor: '#333333'},
+//   productImg: {
+//     flex: 6,
+//   },
+//   title: {
+//     flex: 2,
+//     marginTop: 10,
+//     margin: 3,
+//   },
+//   creatorCon: {
+//     flex: 8,
+//     flexDirection: 'row',
+//     marginLeft: 3,
+//     marginBottom: 10,
+//   },
+//   avatarCon: {
+//     flex: 6,
+//     flexDirection: 'row',
+//   },
+//   creatorAvatar: {
+//     flex: 2,
+//   },
+//   creatorTitle: {
+//     flex: 8,
+//   },
+//   likeCon: {
+//     flex: 2,
+//   },
+// });

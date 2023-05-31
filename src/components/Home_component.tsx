@@ -9,9 +9,7 @@ type Props = {};
 const Home_component = (props: Props) => {
   return (
     <ScrollView style={styles.container} scrollEnabled>
-      <View style={styles.header}>
-        <Header_component />
-      </View>
+      <View style={styles.header}></View>
       <View style={styles.content}>
         <Home_content />
       </View>

@@ -18,6 +18,8 @@ import {
 } from 'react-native';
 import Routing from './src/routing/Routing';
 import {NativeBaseProvider, extendTheme} from 'native-base';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
+
 const theme = extendTheme({
   fontConfig: {
     Epilogue: {
@@ -45,9 +47,11 @@ const theme = extendTheme({
 
 function App(): JSX.Element {
   return (
-    <NativeBaseProvider theme={theme}>
-      <Routing />
-    </NativeBaseProvider>
+    <GestureHandlerRootView style={{flex: 1}}>
+      <NativeBaseProvider theme={theme}>
+        <Routing />
+      </NativeBaseProvider>
+    </GestureHandlerRootView>
   );
 }
 

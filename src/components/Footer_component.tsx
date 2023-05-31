@@ -14,28 +14,32 @@ const Footer_component = (props: Props) => {
             fontFamily={'body'}
             fontSize={'26'}
             fontWeight={'400'}
-            fontStyle={'thin'}>
+            fontStyle={'thin'}
+            color={'white'}>
             The{' '}
           </Text>
           <Text
             fontFamily={'body'}
             fontSize={'26'}
             fontWeight={'400'}
-            fontStyle={'normal'}>
+            fontStyle={'normal'}
+            color={'white'}>
             New{' '}
           </Text>
           <Text
             fontFamily={'body'}
             fontSize={'26'}
             fontWeight={'400'}
-            fontStyle={'semiBold'}>
+            fontStyle={'semiBold'}
+            color={'white'}>
             Creative{' '}
           </Text>
           <Text
             fontFamily={'body'}
             fontSize={'26'}
             fontWeight={'400'}
-            fontStyle={'bold'}>
+            fontStyle={'bold'}
+            color={'white'}>
             Economy
           </Text>
         </View>
@@ -56,7 +60,7 @@ const Footer_component = (props: Props) => {
             fontSize={'20px'}
             fontWeight={'700'}
             fontStyle={'bold'}
-            color={'#555555'}>
+            color={'white'}>
             Discover more
           </Text>
         </TouchableOpacity>
@@ -106,7 +110,7 @@ const Footer_component = (props: Props) => {
             </TouchableOpacity>
           </View>
           <View style={styles.abt}>
-            <TouchableOpacity>
+            <TouchableOpacity style={styles.touchStyle}>
               <Text
                 fontFamily={'heading'}
                 fontSize={'16px'}
@@ -168,7 +172,16 @@ const Footer_component = (props: Props) => {
             </TouchableOpacity>
           </View>
         </View>
-        <View style={styles.divider}></View>
+        <View style={styles.divider}>
+          <Text
+            fontFamily={'heading'}
+            fontSize={'16px'}
+            fontWeight={'400'}
+            fontStyle={'normal'}
+            color={'white'}>
+            © 2021 Openart
+          </Text>
+        </View>
       </View>
     </View>
   );
@@ -209,12 +222,15 @@ const styles = StyleSheet.create({
   },
   footerCon: {
     flex: 5,
-    backgroundColor: '#222222',
-    height: 200,
+    backgroundColor: '#333333',
   },
   footerContent: {
     flex: 8,
     flexDirection: 'row',
+    height: 200,
+    paddingLeft: 20,
+    paddingTop: 20,
+    marginBottom: 50,
   },
   socialMedia: {
     flex: 5,
@@ -224,5 +240,13 @@ const styles = StyleSheet.create({
   },
   touchStyle: {
     marginTop: 10,
+  },
+  divider: {
+    flex: 2,
+    height: 50,
+    borderTopWidth: 1,
+    borderColor: 'white',
+    justifyContent: 'center',
+    paddingLeft: 20,
   },
 });
