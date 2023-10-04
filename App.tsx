@@ -5,7 +5,7 @@
  * @format
  */
 
-import React from 'react';
+import React, {useEffect} from 'react';
 import type {PropsWithChildren} from 'react';
 import {
   SafeAreaView,
@@ -19,6 +19,11 @@ import {
 import Routing from './src/routing/Routing';
 import {NativeBaseProvider, extendTheme} from 'native-base';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import axios from 'axios';
+import {useGetNft} from './src/hooks/hooks';
+
+// axios.defaults.baseURL = 'https://10.0.2.2:8000';
+// axios.defaults.withCredentials = true;
 
 const theme = extendTheme({
   fontConfig: {
@@ -46,6 +51,22 @@ const theme = extendTheme({
 });
 
 function App(): JSX.Element {
+  // useEffect(() => {
+  //   const fetch = async () => {
+  //     axios
+  //       .get('http://10.0.2.2:8000/nfts')
+  //       .then(function (response) {
+  //         // handle success
+  //         console.log(response.data);
+  //       })
+  //       .catch(function (error) {
+  //         // handle error
+  //         console.log(error);
+  //       });
+  //   };
+  //   fetch();
+  // }, []);
+  useGetNft();
   return (
     <GestureHandlerRootView style={{flex: 1}}>
       <NativeBaseProvider theme={theme}>

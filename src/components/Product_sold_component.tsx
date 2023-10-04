@@ -3,34 +3,41 @@ import React from 'react';
 import Product_component from './Product_component';
 import {Text} from 'native-base';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import {useNavigation} from '@react-navigation/native';
 
 type Props = {};
 
 const Product_price_component = (props: Props) => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <View style={styles.product}>
-        <Product_component />
-      </View>
-      <View style={styles.btn}>
-        <TouchableOpacity style={styles.soldBtn}>
-          <Text
-            fontFamily={'body'}
-            fontStyle={'normal'}
-            fontSize={'20px'}
-            color={'white'}>
-            Sold For{'  '}
-          </Text>
-          <Text
-            fontFamily={'body'}
-            fontStyle={'bold'}
-            fontWeight={'400'}
-            fontSize={'24px'}
-            color={'white'}>
-            2.00 ETH
-          </Text>
-        </TouchableOpacity>
-      </View>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('Details_sold');
+        }}>
+        <View style={styles.product}>
+          <Product_component />
+        </View>
+        <View style={styles.btn}>
+          <TouchableOpacity style={styles.soldBtn}>
+            <Text
+              fontFamily={'body'}
+              fontStyle={'normal'}
+              fontSize={'20px'}
+              color={'white'}>
+              Sold For{'  '}
+            </Text>
+            <Text
+              fontFamily={'body'}
+              fontStyle={'bold'}
+              fontWeight={'400'}
+              fontSize={'24px'}
+              color={'white'}>
+              2.00 ETH
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </TouchableOpacity>
     </View>
   );
 };

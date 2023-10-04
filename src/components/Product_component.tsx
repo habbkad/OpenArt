@@ -1,6 +1,7 @@
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import React from 'react';
-import {Image, Text, Avatar, Icon} from 'native-base';
+import {Image, Text, Avatar} from 'native-base';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 type Props = {};
 
@@ -61,13 +62,9 @@ const Product_component = (props: Props) => {
           </View>
 
           <View style={styles.likeCon}>
-            <Icon
-              as={<Image source={require('../assets/Heart.png')} />}
-              size={5}
-              ml="5"
-              mt="2"
-              color="muted.400"
-            />
+            <TouchableOpacity>
+              <Icon name="hearto" size={30} color="white" />
+            </TouchableOpacity>
           </View>
         </View>
       </View>
@@ -107,12 +104,17 @@ const styles = StyleSheet.create({
   },
   creatorAvatar: {
     flex: 2,
+    marginRight: 10,
   },
   creatorTitle: {
     flex: 8,
+    marginLeft: 6,
   },
   likeCon: {
     flex: 2,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   text: {
     color: '#F8F8F8',

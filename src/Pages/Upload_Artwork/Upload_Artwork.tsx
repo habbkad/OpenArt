@@ -1,24 +1,24 @@
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import Menu_component from '../../components/Menu_component';
 import Header_component from '../../components/Header_component';
+import Upload_artwork from '../../components/Upload_artwork';
 
 type Props = {};
 
-const Menu = (props: Props) => {
+const Upload_Artwork = (props: Props) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <Header_component />
       </View>
-      <View style={styles.menu}>
-        <Menu_component />
+      <View style={styles.upload}>
+        <Upload_artwork />
       </View>
     </SafeAreaView>
   );
 };
 
-export default Menu;
+export default Upload_Artwork;
 
 const styles = StyleSheet.create({
   container: {
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   header: {
     flex: 1,
   },
-  menu: {
+  upload: {
     flex: 9,
   },
 });

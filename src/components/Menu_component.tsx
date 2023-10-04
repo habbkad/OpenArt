@@ -1,21 +1,27 @@
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {Text} from 'native-base';
-
+import {useNavigation} from '@react-navigation/native';
 type Props = {};
 
 const Menu_component = (props: Props) => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
+      <View></View>
       <View style={styles.menu_text}>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('Upload_art_work');
+          }}>
           <Text
             fontSize={'3xl'}
             fontFamily={'heading'}
             fontWeight={'700'}
             fontStyle={'bold'}
-            marginTop={'70'}>
-            About OpenArt
+            marginTop={'10'}
+            color={'white'}>
+            Upload Nfts
           </Text>
         </TouchableOpacity>
         <TouchableOpacity>
@@ -23,8 +29,9 @@ const Menu_component = (props: Props) => {
             fontSize={'3xl'}
             fontFamily={'heading'}
             fontWeight={'700'}
+            color={'white'}
             fontStyle={'bold'}
-            marginTop={'32'}>
+            marginTop={'10'}>
             Blog
           </Text>
         </TouchableOpacity>
@@ -34,7 +41,8 @@ const Menu_component = (props: Props) => {
             fontFamily={'heading'}
             fontWeight={'700'}
             fontStyle={'bold'}
-            marginTop={'32'}>
+            color={'white'}
+            marginTop={'10'}>
             Help
           </Text>
         </TouchableOpacity>
@@ -44,7 +52,8 @@ const Menu_component = (props: Props) => {
             fontFamily={'heading'}
             fontWeight={'700'}
             fontStyle={'bold'}
-            marginTop={'32'}>
+            color={'white'}
+            marginTop={'10'}>
             Contact
           </Text>
         </TouchableOpacity>
@@ -64,9 +73,13 @@ const Menu_component = (props: Props) => {
 export default Menu_component;
 
 const styles = StyleSheet.create({
-  container: {flex: 1, justifyContent: 'space-between'},
+  container: {
+    flex: 1,
+    justifyContent: 'space-between',
+    backgroundColor: '#222222',
+  },
   menu_text: {
-    flex: 4,
+    flex: 9,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -83,7 +96,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(159, 3, 255, 1)',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 150,
+    marginTop: 50,
     borderRadius: 10,
   },
 });

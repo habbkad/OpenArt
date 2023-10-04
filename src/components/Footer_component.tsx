@@ -192,6 +192,7 @@ export default Footer_component;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: 150,
   },
   logoCon: {flex: 5, alignItems: 'center'},
   moto: {

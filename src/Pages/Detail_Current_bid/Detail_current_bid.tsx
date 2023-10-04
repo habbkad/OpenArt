@@ -1,24 +1,23 @@
-import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, SafeAreaView, View} from 'react-native';
 import React from 'react';
-import Menu_component from '../../components/Menu_component';
 import Header_component from '../../components/Header_component';
-
+import Details_current from '../../components/Details_current';
 type Props = {};
 
-const Menu = (props: Props) => {
+const Detail_current_bid = (props: Props) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <Header_component />
       </View>
-      <View style={styles.menu}>
-        <Menu_component />
+      <View style={styles.content}>
+        <Details_current />
       </View>
     </SafeAreaView>
   );
 };
 
-export default Menu;
+export default Detail_current_bid;
 
 const styles = StyleSheet.create({
   container: {
@@ -28,7 +27,5 @@ const styles = StyleSheet.create({
   header: {
     flex: 1,
   },
-  menu: {
-    flex: 9,
-  },
+  content: {flex: 9},
 });

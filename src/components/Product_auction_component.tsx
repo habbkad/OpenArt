@@ -2,16 +2,26 @@ import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import {Text} from 'native-base';
 import React from 'react';
 import Product_component from './Product_component';
+import {useNavigation} from '@react-navigation/native';
 type Props = {};
 
 const Product_auction_component = (props: Props) => {
+  const navigation = useNavigation();
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => {
+        navigation.navigate('Details_current_bid');
+      }}>
       <View style={styles.product}>
         <Product_component />
       </View>
       <View style={styles.btn}>
-        <TouchableOpacity style={styles.soldBtn}>
+        <TouchableOpacity
+          style={styles.soldBtn}
+          onPress={() => {
+            navigation.navigate('Details_current_bid');
+          }}>
           <View style={{flex: 5}}>
             <Text
               fontFamily={'body'}
@@ -48,7 +58,7 @@ const Product_auction_component = (props: Props) => {
           </View>
         </TouchableOpacity>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
