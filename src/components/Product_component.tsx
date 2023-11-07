@@ -3,9 +3,22 @@ import React from 'react';
 import {Image, Text, Avatar} from 'native-base';
 import Icon from 'react-native-vector-icons/AntDesign';
 
-type Props = {};
+export interface nftState {
+  _id: string;
+  title: string;
+  creator: string;
+  details: string;
+  tags: [string];
+  autionTime: string;
+  nft_picture: [string];
+  hotbid: boolean;
+}
 
-const Product_component = (props: Props) => {
+type Props = {
+  info: nftState;
+};
+
+const Product_component = ({title, creator}: any) => {
   return (
     <View style={styles.container}>
       <View style={styles.con}>
@@ -26,7 +39,7 @@ const Product_component = (props: Props) => {
             fontStyle={'bold'}
             fontSize={'24px'}
             style={styles.text}>
-            Silent Wave
+            {title}
           </Text>
         </View>
         <View style={styles.creatorCon}>
@@ -49,7 +62,7 @@ const Product_component = (props: Props) => {
                 fontStyle={'bold'}
                 fontSize={'18px'}
                 style={styles.text}>
-                Pawel Czerwinski
+                {creator}
               </Text>
               <Text
                 fontFamily={'heading'}

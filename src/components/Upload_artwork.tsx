@@ -19,17 +19,14 @@ const Upload_artwork = (props: Props) => {
 
   const upload = async e => {
     e.preventDefault();
-    console.log(image);
+    //console.log(image);
     useCreateNft(image, name, tags, desc);
   };
 
   //image picker
   const openImagePicker = () => {
     const options = {
-      mediaType: 'photo',
-      includeBase64: false,
-      maxHeight: 2000,
-      maxWidth: 2000,
+      noData: true,
     };
 
     launchImageLibrary(options, response => {
@@ -39,9 +36,11 @@ const Upload_artwork = (props: Props) => {
         console.log('Image picker error: ', response.error);
       } else {
         let imageUri = response.uri || response.assets?.[0]?.uri;
+        console.log(imageUri);
+
         if (selectedImage.length < 3) {
           setSelectedImage([...selectedImage, imageUri]);
-          setImage([...image, response.assets]);
+          setImage([...image, response]);
         }
       }
     });

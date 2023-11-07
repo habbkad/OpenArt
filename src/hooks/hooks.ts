@@ -1,18 +1,30 @@
 import axios from 'axios';
 import {useEffect} from 'react';
+import {Platform} from 'react-native';
 
-export const useCreateNft = async (imageFiles, tags, desc, name) => {
-  const formData = new FormData();
+import {addNfts} from '../redux/nftSlice';
+import {useAppDispatch} from './reduxhooks';
+
+export const useCreateNft = async (imageFiles, name, tags, desc) => {
+  console.log(imageFiles[0].assets[0]);
+
+  let formData = new FormData();
 
   for (let i = 0; i < imageFiles.length; i++) {
-    formData.append('file', imageFiles[i][0]);
+    formData.append('files', {
+      name: imageFiles[i].assets[0].fileName,
+      type: imageFiles[i].assets[0].type,
+      uri:
+        Platform.OS === 'android'
+          ? imageFiles[i].assets[0].uri
+          : imageFiles[i].assets[0].uri.replace('file://', ''),
+    });
   }
-  formData.append('tags', tags);
-  formData.append('details', desc);
   formData.append('title', name);
-  formData.append('creator', 'Aaron');
-  formData.append('ether_link', '');
-  formData.append('ipfs_link', '');
+  formData.append('creator', name);
+  formData.append('details', desc);
+  formData.append('tags', tags);
+  formData.append('auctionTime', tags);
 
   await axios
     .post('http://10.0.2.2:8000/nfts', formData, {
@@ -26,27 +38,23 @@ export const useCreateNft = async (imageFiles, tags, desc, name) => {
     .catch(function (error) {
       console.log(error);
     });
-  // const data = await axios.post(' http://10.0.2.2:8000/nfts', formData, {
-  //   headers: {
-  //     'Content-Type': 'multipart/form-data',
-  //   },
-  //   withCredentials: true,
-  // });
-
-  console.log(data);
 };
-export const useGetNft = async () => {
+export const useGetNft = () => {
+  const dispatch = useAppDispatch();
   useEffect(() => {
     const fetch = async () => {
       axios
         .get('http://10.0.2.2:8000/nfts')
         .then(function (response) {
           // handle success
-          console.log(response.data);
+          // console.log(response.data.data);
+          dispatch(addNfts(response.data.data));
         })
         .catch(function (error) {
           // handle error
           console.log(error);
+
+          dispatch;
         });
     };
     fetch();

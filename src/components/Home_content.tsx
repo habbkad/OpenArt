@@ -7,12 +7,14 @@ import ProductPrice_component from './Product_sold_component';
 import Product_auction_component from './Product_auction_component';
 import Hot_bid_component from './Hot_bid_component';
 import SingleBid from './SingleBid';
+import {useAppSelector} from '../hooks/reduxhooks';
 
 type Props = {};
 
 const Home_content = (props: Props) => {
+  const state = useAppSelector(state => state.nfts.nfts);
   const productPrice = [1, 2];
-  const productAuction = [1, 3, 4, 3, 4, 5, 3];
+  const productAuction = state;
   const hotBid = [1, 3, 4, 3, 4, 5, 3];
   return (
     <View style={styles.container}>
@@ -73,7 +75,7 @@ const Home_content = (props: Props) => {
         />
         <FlatList
           data={productAuction}
-          renderItem={({item}) => <Product_auction_component />}
+          renderItem={({item}) => <Product_auction_component data={item} />}
         />
         <View style={styles.hotBidCon}>
           <View style={{flexDirection: 'row', alignItems: 'center'}}>

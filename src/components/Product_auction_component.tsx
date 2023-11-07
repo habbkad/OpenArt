@@ -3,7 +3,20 @@ import {Text} from 'native-base';
 import React from 'react';
 import Product_component from './Product_component';
 import {useNavigation} from '@react-navigation/native';
-type Props = {};
+export interface nftState {
+  _id: string;
+  title: string;
+  creator: string;
+  details: string;
+  tags: [string];
+  autionTime: string;
+  nft_picture: [string];
+  hotbid: boolean;
+}
+
+type Props = {
+  data: nftState;
+};
 
 const Product_auction_component = (props: Props) => {
   const navigation = useNavigation();
@@ -11,10 +24,15 @@ const Product_auction_component = (props: Props) => {
     <TouchableOpacity
       style={styles.container}
       onPress={() => {
-        navigation.navigate('Details_current_bid');
+        navigation.navigate('Details_current_bid', {
+          state: props.data,
+        });
       }}>
       <View style={styles.product}>
-        <Product_component />
+        <Product_component
+          title={props.data.title}
+          creator={props.data.creator}
+        />
       </View>
       <View style={styles.btn}>
         <TouchableOpacity

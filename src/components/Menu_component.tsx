@@ -12,6 +12,20 @@ const Menu_component = (props: Props) => {
       <View style={styles.menu_text}>
         <TouchableOpacity
           onPress={() => {
+            navigation.navigate('Home');
+          }}>
+          <Text
+            fontSize={'3xl'}
+            fontFamily={'heading'}
+            fontWeight={'700'}
+            color={'white'}
+            fontStyle={'bold'}
+            marginTop={'10'}>
+            Home
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
             navigation.navigate('Upload_art_work');
           }}>
           <Text
@@ -22,17 +36,6 @@ const Menu_component = (props: Props) => {
             marginTop={'10'}
             color={'white'}>
             Upload Nfts
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Text
-            fontSize={'3xl'}
-            fontFamily={'heading'}
-            fontWeight={'700'}
-            color={'white'}
-            fontStyle={'bold'}
-            marginTop={'10'}>
-            Blog
           </Text>
         </TouchableOpacity>
         <TouchableOpacity>

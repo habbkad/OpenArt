@@ -5,15 +5,17 @@ import Footer_component from './Footer_component';
 import {Image, Text, Icon, Row, Button, Modal} from 'native-base';
 import Activities from './Activities';
 import Place_bid_modal from './Place_bid_modal';
+import {useAppSelector} from '../hooks/reduxhooks';
 type Props = {};
 
-const Details_current = (props: Props) => {
+const Details_current = (props: any) => {
   const [showModal, setShowModal] = useState(false);
+  console.log(props.data);
 
   return (
     <ScrollView style={styles.container}>
       <View>
-        <Details_description />
+        <Details_description data={props.data} />
       </View>
       <View>
         <View style={styles.currentBidCon}>

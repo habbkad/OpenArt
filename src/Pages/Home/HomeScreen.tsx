@@ -2,10 +2,13 @@ import React from 'react';
 import {SafeAreaView, Text, View, StyleSheet} from 'react-native';
 import Header_component from '../../components/Header_component';
 import Home_component from '../../components/Home_component';
+import {useGetNft} from '../../hooks/hooks';
+import {useAppSelector} from '../../hooks/reduxhooks';
 
 type Props = {};
 
 const HomeScreen = (props: Props) => {
+  useGetNft();
   return (
     <SafeAreaView style={styles.container}>
       <View style={{flex: 1}}>

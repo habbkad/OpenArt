@@ -7,6 +7,8 @@
 
 import React, {useEffect} from 'react';
 import type {PropsWithChildren} from 'react';
+import {Provider} from 'react-redux';
+import {store} from './src/redux/store';
 import {
   SafeAreaView,
   ScrollView,
@@ -51,7 +53,6 @@ const theme = extendTheme({
 });
 
 function App(): JSX.Element {
-  // useEffect(() => {
   //   const fetch = async () => {
   //     axios
   //       .get('http://10.0.2.2:8000/nfts')
@@ -66,13 +67,15 @@ function App(): JSX.Element {
   //   };
   //   fetch();
   // }, []);
-  useGetNft();
+
   return (
-    <GestureHandlerRootView style={{flex: 1}}>
-      <NativeBaseProvider theme={theme}>
-        <Routing />
-      </NativeBaseProvider>
-    </GestureHandlerRootView>
+    <Provider store={store}>
+      <GestureHandlerRootView style={{flex: 1}}>
+        <NativeBaseProvider theme={theme}>
+          <Routing />
+        </NativeBaseProvider>
+      </GestureHandlerRootView>
+    </Provider>
   );
 }
 

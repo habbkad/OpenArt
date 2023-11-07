@@ -4,7 +4,9 @@ import {Image, Text, Icon} from 'native-base';
 
 type Props = {};
 
-const Details_description = (props: Props) => {
+const Details_description = ({data}: any) => {
+  console.log(data);
+
   return (
     <View style={styles.container}>
       <View style={styles.imgCon}>
@@ -24,7 +26,7 @@ const Details_description = (props: Props) => {
             fontSize={'24px'}
             fontStyle={'semiBold'}
             color={'white'}>
-            Silent Color
+            {data.title}
           </Text>
           <TouchableOpacity style={styles.nameTag}>
             <Image style={styles.nameIcon} />
@@ -65,10 +67,7 @@ const Details_description = (props: Props) => {
           fontSize={'16px'}
           fontStyle={'normal'}
           color={'white'}>
-          Together with my design team, we designed this futuristic Cyberyacht
-          concept artwork. We wanted to create something that has not been
-          created yet, so we started to collect ideas of how we imagine the
-          Cyberyacht could look like in the future.
+          {data.details}
         </Text>
         <View style={styles.tags}>
           <View style={styles.tag}>

@@ -4,14 +4,17 @@ import Header_component from '../../components/Header_component';
 import Details_current from '../../components/Details_current';
 type Props = {};
 
-const Detail_current_bid = (props: Props) => {
+const Detail_current_bid = ({route}: Props) => {
+  const {state} = route.params;
+  //console.log(state);
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <Header_component />
       </View>
       <View style={styles.content}>
-        <Details_current />
+        <Details_current data={state} />
       </View>
     </SafeAreaView>
   );

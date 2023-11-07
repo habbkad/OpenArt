@@ -7,6 +7,7 @@ import Details_auctions from '../Pages/Detail_Auction/Details_auctions';
 import Detail_sold from '../Pages/Detail_Sold/Detail_sold';
 import Detail_current_bid from '../Pages/Detail_Current_bid/Detail_current_bid';
 import Upload_Artwork from '../Pages/Upload_Artwork/Upload_Artwork';
+import {useGetNft} from '../hooks/hooks';
 
 type Props = {};
 const Stack = createNativeStackNavigator();
