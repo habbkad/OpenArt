@@ -5,18 +5,31 @@ import {Text} from 'native-base';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
 
-type Props = {};
+export interface nftState {
+  _id: string;
+  title: string;
+  creator: string;
+  details: string;
+  tags: [string];
+  autionTime: string;
+  nft_picture: [string];
+  hotbid: boolean;
+}
 
-const Product_price_component = (props: Props) => {
+type Props = {
+  data: nftState;
+};
+
+const Product_price_component = ({data}: any) => {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate('Details_sold');
+          navigation.navigate('Details_sold', {state: data});
         }}>
         <View style={styles.product}>
-          <Product_component />
+          <Product_component title={data.title} creator={data.creator} />
         </View>
         <View style={styles.btn}>
           <TouchableOpacity style={styles.soldBtn}>

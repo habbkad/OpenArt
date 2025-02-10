@@ -5,14 +5,15 @@ import Header_component from '../../components/Header_component';
 
 type Props = {};
 
-const Detail_sold = (props: Props) => {
+const Detail_sold = ({route}: any) => {
+  const {state} = route.params;
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <Header_component />
       </View>
       <View style={styles.content}>
-        <Details_sold_component />
+        <Details_sold_component data={state} />
       </View>
     </SafeAreaView>
   );

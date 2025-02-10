@@ -8,16 +8,21 @@ export interface nftState {
   creator: string;
   details: string;
   tags: [string];
+  sold: boolean;
   autionTime: string;
   nft_picture: [string];
   hotbid: boolean;
 }
 type nftsState = {
   nfts: nftState[];
+  soldNfts: nftState[];
+  hotNft: nftState[];
 };
 // Define the initial state using that type
 const initialState: nftsState = {
   nfts: [],
+  soldNfts: [],
+  hotNft: [],
 };
 
 export const nftSlice = createSlice({
@@ -26,6 +31,11 @@ export const nftSlice = createSlice({
   initialState,
   reducers: {
     addNfts: (state, action) => {
+      let sold = action.payload.filter(item => item.sold == true);
+      let hot = action.payload.filter(item => item.hotbid == true);
+
+      state.soldNfts = sold;
+      state.hotNft = hot;
       state.nfts = [...action.payload];
     },
   },

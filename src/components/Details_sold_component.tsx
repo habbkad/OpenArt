@@ -3,13 +3,14 @@ import React from 'react';
 import {Icon, Image, Text} from 'native-base';
 import Details_description from './Details_description';
 import Footer_component from './Footer_component';
+import {route} from '@react-navigation/native';
 type Props = {};
 
 const Details_sold_component = (props: Props) => {
   return (
     <ScrollView style={styles.container}>
       <View>
-        <Details_description />
+        <Details_description data={props.data} />
       </View>
       <View>
         <View style={styles.priceCon}>

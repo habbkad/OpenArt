@@ -8,6 +8,7 @@ import Detail_sold from '../Pages/Detail_Sold/Detail_sold';
 import Detail_current_bid from '../Pages/Detail_Current_bid/Detail_current_bid';
 import Upload_Artwork from '../Pages/Upload_Artwork/Upload_Artwork';
 import {useGetNft} from '../hooks/hooks';
+import Profile from '../Pages/Profile_User/Profile';
 
 type Props = {};
 const Stack = createNativeStackNavigator();
@@ -45,6 +46,11 @@ const Routing = (props: Props) => {
         <Stack.Screen
           name="Upload_art_work"
           component={Upload_Artwork}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Profile"
+          component={Profile}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

@@ -12,10 +12,11 @@ import {useAppSelector} from '../hooks/reduxhooks';
 type Props = {};
 
 const Home_content = (props: Props) => {
-  const state = useAppSelector(state => state.nfts.nfts);
-  const productPrice = [1, 2];
-  const productAuction = state;
-  const hotBid = [1, 3, 4, 3, 4, 5, 3];
+  const state = useAppSelector(state => state.nfts);
+  const productPrice = state.soldNfts;
+  const productAuction = state.nfts;
+
+  const hotBid = state.hotNft;
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -65,13 +66,11 @@ const Home_content = (props: Props) => {
           }
         />
       </View>
-      <View>
-        <SingleBid />
-      </View>
+      <View>{/* <SingleBid /> */}</View>
       <View style={styles.content}>
         <FlatList
           data={productPrice}
-          renderItem={({item}) => <ProductPrice_component />}
+          renderItem={({item}) => <ProductPrice_component data={item} />}
         />
         <FlatList
           data={productAuction}

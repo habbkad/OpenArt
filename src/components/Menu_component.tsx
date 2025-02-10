@@ -45,8 +45,11 @@ const Menu_component = (props: Props) => {
             fontWeight={'700'}
             fontStyle={'bold'}
             color={'white'}
-            marginTop={'10'}>
-            Help
+            marginTop={'10'}
+            onPress={() => {
+              navigation.navigate('Profile');
+            }}>
+            Profile
           </Text>
         </TouchableOpacity>
         <TouchableOpacity>
